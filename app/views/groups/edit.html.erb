@@ -3,6 +3,11 @@
 
   <hr>
   <%= form_for @group do |f|  %>
+    <% if @group.errors.any? %>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %>
     标题
     <%= f.text_field :title %>
     <br>
